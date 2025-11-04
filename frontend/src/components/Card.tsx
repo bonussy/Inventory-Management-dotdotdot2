@@ -1,35 +1,48 @@
 'use client';
 import Image from 'next/image';
 import InteractiveCard from './InteractiveCard';
-import Rating from '@mui/material/Rating';
-import { useState } from 'react';
 
-export default function Card({ venueName, imgSrc, onRating } : { venueName: string, imgSrc: string, onRating?:Function }) {
+export default function Card({ productName, imgSrc, userRole, onEdit, onDelete } : { 
+    productName: string, 
+    imgSrc: string, 
+    userRole?: string,
+    onEdit?: () => void,
+    onDelete?: () => void
+}) {
     
-    const [rating, setRating] = useState<number | null>(0);
-    
+    const handleButtonClick = (e: React.MouseEvent, callback?: () => void) => {
+        e.preventDefault(); // Prevent the link click
+        if (callback) {
+            callback();
+        }
+    };
+
     return (
         <InteractiveCard>
             <div className='w-full h-[70%] relative rounded-t-lg'>
                 <Image src={imgSrc}
-                alt='Venue Picture'
+                alt='Product Picture'
                 fill={true}
                 className='object-cover rounded-t-lg'/>
             </div>
             <div className='w-full h-[30%] p-[10px]'>
-                <h1 className='text-lg font-medium underline cursor-pointer'>{venueName}</h1>
-                {
-                    onRating ?
-                    <Rating
-                    id={venueName}
-                    name={venueName}
-                    data-testid={venueName + " Rating"}
-                    value={rating}
-                    onClick={(e) => e.stopPropagation()} 
-                    onChange={(e, newRating) => {setRating(newRating); onRating(venueName, newRating)}}
-                    /> : ""
-                }
-                
+                <h1 className='text-lg font-medium underline cursor-pointer'>{productName}</h1>
+                {userRole === 'admin' && (
+                    <div className='mt-2'>
+                        <button 
+                            onClick={(e) => handleButtonClick(e, onEdit)}
+                            className='bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-md transition-colors'
+                        >
+                            Edit
+                        </button>
+                        <button 
+                            onClick={(e) => handleButtonClick(e, onDelete)}
+                            className='bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition-colors ml-2'
+                        >
+                            Delete
+                        </button>
+                    </div>
+                )}
             </div>
         </InteractiveCard>
     );

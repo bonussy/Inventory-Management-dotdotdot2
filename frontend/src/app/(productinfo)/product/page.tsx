@@ -6,7 +6,8 @@ import getUserProfile from '@/libs/getUserProfile';
 import Link from 'next/link';
 
 export default async function Product() {
-    const products = getProducts();
+
+    const products = await getProducts();
 
     const session = await getServerSession(authOptions);
     if(!session || !session.user?.token)  return (
@@ -35,7 +36,7 @@ export default async function Product() {
                 )}
             </div>
 
-            <ProductCatalog productsJson={products} />
+            <ProductCatalog productsJson={products} userRole={profile.data.role} token={session.user.token}/>
         </main>
     );
 }

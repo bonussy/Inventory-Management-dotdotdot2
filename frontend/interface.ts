@@ -25,3 +25,27 @@ export interface BookingItem {
     venue: string;
     bookDate: string;
   }
+
+export interface ProductItem {
+  _id: string;
+  name: string;
+  sku: string;
+  description: string;
+  category: string;
+  price: number;
+  stockQuantity: number;
+  unit: string;
+  picture: string;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  id: string;
+}
+
+export interface ProductJson {
+  success: boolean;
+  count: number;
+  pagination: Object;
+  data: ProductItem[];
+}
