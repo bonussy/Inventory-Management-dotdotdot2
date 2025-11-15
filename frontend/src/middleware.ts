@@ -2,7 +2,6 @@ export { default } from 'next-auth/middleware';
 
 export const config = { 
     matcher: [
-        "/product/add",
-        "/product/edit/:path*"
+        "/product/add"
     ] 
 };
