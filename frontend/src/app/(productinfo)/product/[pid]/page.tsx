@@ -11,7 +11,7 @@ export default async function ProductDetailPage({params}: {params: Promise<{pid:
     const p = productDetail.data;
 
     return (
-        <main className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 p-8">
+        <main className="min-h-screen bg-gradient-to-br from-white via-orange-50 to-white p-8">
             <div className="max-w-6xl mx-auto">
                 {/* Back Button */}
                 <Link 

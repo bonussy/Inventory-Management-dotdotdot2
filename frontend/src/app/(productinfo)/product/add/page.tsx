@@ -2,6 +2,7 @@ import {getServerSession} from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import getUserProfile from "@/libs/getUserProfile";
 import AddProductForm from "@/components/AddProductForm";
+import { redirect } from "next/navigation";
 
 export default async function AddProductPage() {
 
@@ -10,6 +11,12 @@ export default async function AddProductPage() {
 
     const profile = await getUserProfile(session.user.token);
     var createdAt = new Date(profile.data.createdAt);
+
+    // Access control: only allow admin
+    if (profile?.data?.role !== "admin") {
+        // alert("Access denied. Admins only.");
+        redirect("/product");
+    }
 
     return (
         <AddProductForm token={session.user.token}/>
