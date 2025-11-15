@@ -12,7 +12,7 @@ export default async function Product() {
 
     const session = await getServerSession(authOptions);
     if(!session || !session.user?.token)  return (
-        <main className="p-4 sm:p-6 md:p-8 lg:p-12">
+        <main className="p-4 sm:p-6 md:p-8 lg:p-12 ">
             <div className="max-w-7xl mx-auto">
                 {/* Header: centered title on every screen */}
                 <div className="relative flex items-center justify-center mb-6 min-h-[48px]">
