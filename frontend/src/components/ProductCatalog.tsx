@@ -41,15 +41,19 @@ export default function ProductCatalog({productsJson, userRole, token}: {product
 
     return (
         <>
-        Explore {count} products in our catalog
+            <div className="text-center mb-4">Explore <strong>{count}</strong> products in our catalog</div>
 
-        <div style={{margin:"20px", display:"flex", flexDirection:"row",
-                alignContent: "space-around", justifyContent: "space-around", flexWrap: "wrap", padding:"10px"}}>
+            {/* Responsive grid: 1 col xs, 2 cols sm/md, 4 cols lg+ */}
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
                 {
-                    items.map((productItem: ProductItem)=>(
-                        <Link href={`/product/${(productItem.id)}`} className="w-1/5" key={productItem.id}>
+                    items.map((productItem: ProductItem) => (
+                        <Link 
+                            href={`/product/${productItem.id}`} 
+                            key={productItem.id} 
+                            className="block"
+                            aria-label={`View ${productItem.name}`}
+                        >
                             <Card 
-                                key={productItem.id} 
                                 productName={productItem.name} 
                                 imgSrc={productItem.picture} 
                                 userRole={userRole}
