@@ -3,8 +3,8 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import getRequest from "@/libs/getRequest";
 import Link from "next/link";
 
-export default async function RequestDetailPage(props: { params: { rid: string } }) {
-    const { params } = props;
+export default async function RequestDetailPage(props: { params: Promise<{ rid: string }> }) {
+    const params = await props.params;
     const rid = params.rid;
 
     const session = await getServerSession(authOptions);
