@@ -54,8 +54,7 @@ export default function TopMenuClient({ session }: { session: any }) {
                 <div className='sm:hidden absolute top-[50px] left-0 right-0 bg-white border-b border-gray-300 shadow-lg z-20'>
                     <div className='flex flex-col gap-2 p-4'>
                         <TopMenuItem title="Home" pageRef="/"/>
-                        <TopMenuItem title="MyBooking" pageRef="/mybooking"/>
-                        <TopMenuItem title="Booking" pageRef="/booking"/>
+                        <TopMenuItem title="Request" pageRef="/request"/>
                         <TopMenuItem title="Register" pageRef="/register"/>
                     </div>
                 </div>
