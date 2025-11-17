@@ -49,3 +49,41 @@ export interface ProductJson {
   pagination: Object;
   data: ProductItem[];
 }
+
+export interface RequestItem {
+  _id: string;
+  id: string;
+  transactionDate: string;
+  transactionType: "stockIn" | "stockOut";
+  itemAmount: number;
+
+  user:
+    | string
+    | {
+        _id: string;
+        name: string;
+        email: string;
+        role: "staff" | "admin";
+      };
+
+  product_id:
+    | string
+    | {
+        _id: string;
+        name: string;
+        sku: string;
+        category: string;
+        stockQuantity: number;
+      };
+
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface RequestJson {
+  success: boolean;
+  count: number;
+  pagination: Record<string, unknown>;
+  data: RequestItem[];
+}

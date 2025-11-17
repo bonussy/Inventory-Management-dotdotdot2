@@ -28,7 +28,7 @@ export default function InteractiveCard({ children } : { children: React.ReactNo
 
     return (
         <div
-            className="w-full h-[420px] rounded-2xl bg-white shadow-lg overflow-hidden 
+            className="w-full rounded-2xl bg-white shadow-lg overflow-hidden 
             transition-transform transform hover:scale-[1.02] hover:shadow-xl hover:bg-gradient-to-br 
             hover:from-white hover:to-gray-50"
             title="Product card"

@@ -20,8 +20,7 @@ export default function TopMenuClient({ session }: { session: any }) {
                             Sign-In</div></Link>
                 }
                 <TopMenuItem title="Home" pageRef="/"/>
-                <TopMenuItem title="MyBooking" pageRef="/mybooking"/>
-                <TopMenuItem title="Booking" pageRef="/booking"/>
+                <TopMenuItem title="Request" pageRef="/request"/>
                 <TopMenuItem title="Register" pageRef="/register"/>
                 <Image src={"/img/logo.png"} className='h-full w-auto' alt="Logo" width={0} height={0} sizes='100vh'/>
             </div>
