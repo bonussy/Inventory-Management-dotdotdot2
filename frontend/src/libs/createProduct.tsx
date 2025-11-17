@@ -9,7 +9,8 @@ export default async function createProduct(
     picture: string,
     token: string
 ) {
-    const base = "http://localhost:5000"
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL
+    console.log("Backend URL:", base);
     const response = await fetch(`${base}/api/v1/products`, {
         method: "POST",
         headers: { 

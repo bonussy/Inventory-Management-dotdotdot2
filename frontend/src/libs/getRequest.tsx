@@ -1,5 +1,5 @@
 export default async function getRequest(token: string, requestId: string) {
-    const base = "http://localhost:5000";
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     const response = await fetch(`${base}/api/v1/requests/${requestId}`, {
         headers: {

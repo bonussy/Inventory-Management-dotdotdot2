@@ -3,7 +3,7 @@ export default async function updateRequest(token: string, requestId: string, pa
     product_id?: string,
     itemAmount?: number
 }) {
-    const base = "http://localhost:5000";
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL;
     const response = await fetch(`${base}/api/v1/requests/${requestId}`, {
         method: "PUT",
         headers: {

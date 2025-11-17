@@ -1,5 +1,5 @@
 export default async function userRegister(userName: string, userEmail: string, userTel: string, userRole: string, userPassword: string,) {
-    const base = "http://localhost:5000"
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL
     const response = await fetch(`${base}/api/v1/auth/register`, {
         method: "POST",
         headers: { 

@@ -1,4 +1,3 @@
-// ...existing code...
 import getProducts from "@/libs/getProducts";
 import ProductCatalog from "@/components/ProductCatalog";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
@@ -58,4 +57,3 @@ export default async function Product() {
         </main>
     );
 }
-// ...existing code...

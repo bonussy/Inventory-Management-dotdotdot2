@@ -1,6 +1,6 @@
 export default async function deleteProduct(pid: string, token: string) {
 
-    const base = "http://localhost:5000"
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL
     const response = await fetch(`${base}/api/v1/products/${pid}`, {
         method: "DELETE",
         headers: {

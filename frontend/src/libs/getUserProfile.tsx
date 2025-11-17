@@ -1,6 +1,6 @@
 export default async function getUserProfile(token:string) {
 
-    const base = "http://localhost:5000"
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL
     const response = await fetch(`${base}/api/v1/auth/me`, {
         method: "GET",
         headers: {

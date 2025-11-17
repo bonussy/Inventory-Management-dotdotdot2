@@ -4,7 +4,7 @@ export default async function createRequest(
     itemAmount: number,
     token: string
 ) {
-    const base = "http://localhost:5000";
+    const base = process.env.NEXT_PUBLIC_BACKEND_URL;
 
     const response = await fetch(`${base}/api/v1/requests`, {
         method: "POST",
