@@ -123,7 +123,7 @@ export default function RegisterPage() {
                 type="tel" 
                 value={tel} 
                 onChange={(e) => setTel(e.target.value)} 
-                placeholder="+1 (555) 000-0000"
+                placeholder="000-000-0000"
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition"
                 required
               />
